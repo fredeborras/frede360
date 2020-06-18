@@ -71,6 +71,7 @@ class LoginActivity : Frede360BaseViewModelActivity<LoginViewModel>() {
     }
 
     private fun launchLogin() {
+        //TODO: Show loader
         viewModel.launchLogin().observe(this, Observer {
             if (it) {
                 goHome()

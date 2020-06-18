@@ -3,7 +3,11 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
 
+    <!-- Generics -->
+    <string name="generic_attention">Attention!</string>
+
     <!-- Errors -->
+    <string name="error_connection">Something went wrong. Try it again!</string>
     <string name="error_email_empty">Write your email</string>
     <string name="error_email_invalid">This email is not valid</string>
     <string name="error_pwd_invalid">Password must be between 6 and 12 characters long</string>

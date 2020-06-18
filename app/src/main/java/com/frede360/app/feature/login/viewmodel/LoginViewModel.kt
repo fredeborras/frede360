@@ -14,22 +14,21 @@ class LoginViewModel : Frede360BaseViewModel() {
     fun launchLogin(): MutableLiveData<Boolean> {
         loginResponse = MutableLiveData()
 
-        LoginRepository.getInstance(context).launchLogin(object : Frede360RestCallbackImpl() {
-            override fun onSuccess(response: SuccessEntity) {
-                super.onSuccess(response)
+        LoginRepository.getInstance(context)
+            .launchLogin(object : Frede360RestCallbackImpl(context) {
+                override fun onSuccess(response: SuccessEntity) {
+                    super.onSuccess(response)
 
-                loginResponse.value = true
-            }
+                    loginResponse.value = true
+                }
 
-            override fun onError(error: ErrorEntity) {
-                super.onError(error)
+                override fun onError(error: ErrorEntity) {
+                    super.onError(error)
 
-                loginResponse.value = false
-            }
-        })
+                    loginResponse.value = false
+                }
+            })
 
         return loginResponse
     }
-
-
 }
