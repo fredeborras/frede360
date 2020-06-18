@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Frede360</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
 </resources>
