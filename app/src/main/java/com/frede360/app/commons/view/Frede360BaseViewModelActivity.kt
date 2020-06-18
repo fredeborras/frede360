@@ -14,5 +14,6 @@ abstract class Frede360BaseViewModelActivity<VM : Frede360BaseViewModel> : Frede
         super.onCreate(savedInstanceState)
 
         viewModel = ViewModelProvider(this)[getViewModelClass()]
+        viewModel.context = this
     }
 }

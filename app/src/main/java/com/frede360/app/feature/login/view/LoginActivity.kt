@@ -1,10 +1,13 @@
 package com.frede360.app.feature.login.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import androidx.lifecycle.Observer
 import com.frede360.app.R
 import com.frede360.app.commons.utils.Frede360TextUtils
 import com.frede360.app.commons.view.Frede360BaseViewModelActivity
+import com.frede360.app.feature.login.repository.LoginRepository
 import com.frede360.app.feature.login.viewmodel.LoginViewModel
 import com.frede360.app.feature.register.view.RegisterActivity
 import kotlinx.android.synthetic.main.activity_login.*
@@ -68,6 +71,14 @@ class LoginActivity : Frede360BaseViewModelActivity<LoginViewModel>() {
     }
 
     private fun launchLogin() {
+        viewModel.launchLogin().observe(this, Observer {
+            if (it) {
+                goHome()
+            }
+        })
+    }
 
+    private fun goHome() {
+        //TODO
     }
 }
