@@ -5,6 +5,7 @@ import android.view.View
 import androidx.lifecycle.Observer
 import com.frede360.app.R
 import com.frede360.app.commons.hideKeyboard
+import com.frede360.app.commons.manager.Frede360NavigationManager
 import com.frede360.app.commons.utils.Frede360TextUtils
 import com.frede360.app.commons.view.Frede360BaseViewModelActivity
 import com.frede360.app.feature.login.viewmodel.LoginViewModel
@@ -74,12 +75,8 @@ class LoginActivity : Frede360BaseViewModelActivity<LoginViewModel>() {
         //TODO: Show loader
         viewModel.launchLogin().observe(this, Observer {
             if (it) {
-                goHome()
+                Frede360NavigationManager.goHome(this)
             }
         })
-    }
-
-    private fun goHome() {
-        //TODO
     }
 }
