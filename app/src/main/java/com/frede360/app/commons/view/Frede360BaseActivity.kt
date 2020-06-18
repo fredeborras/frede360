@@ -59,7 +59,7 @@ open class Frede360BaseActivity : AppCompatActivity() {
      * Main method to configure view
      */
     open fun configureView() {
-        //Nothing to do
+        //Nothing to do by default
     }
 
 //  ====================================

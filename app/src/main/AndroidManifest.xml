@@ -23,6 +23,12 @@
             android:name=".feature.login.view.LoginActivity"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".feature.register.view.RegisterActivity"
+            android:label="@string/sign_up"
+            android:windowSoftInputMode="adjustResize" />
+
     </application>
 
 </manifest>

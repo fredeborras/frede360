@@ -32,7 +32,7 @@ class Frede360Button @JvmOverloads constructor(
         }
     }
 
-    fun setOnFrede360ButtonClicked(listener: OnClickListener) {
+    fun setOnButtonClicked(listener: OnClickListener) {
         button.setOnClickListener(listener)
     }
 }
