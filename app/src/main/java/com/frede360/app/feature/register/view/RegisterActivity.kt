@@ -2,8 +2,10 @@ package com.frede360.app.feature.register.view
 
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Observer
 import com.frede360.app.R
 import com.frede360.app.commons.hideKeyboard
+import com.frede360.app.commons.manager.Frede360NavigationManager
 import com.frede360.app.commons.utils.Frede360TextUtils
 import com.frede360.app.commons.view.Frede360BaseViewModelActivity
 import com.frede360.app.feature.register.viewmodel.RegisterViewModel
@@ -75,7 +77,11 @@ class RegisterActivity : Frede360BaseViewModelActivity<RegisterViewModel>() {
     }
 
     private fun launchRegister() {
-        //TODO
+        viewModel.launchRegister().observe(this, Observer {
+            if (it) {
+                Frede360NavigationManager.goHome(this)
+            }
+        })
     }
 
 }

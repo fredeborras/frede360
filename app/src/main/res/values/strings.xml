@@ -15,7 +15,7 @@
     <string name="error_age_invalid">Age must be between 18 and 99 years old</string>
 
     <!-- Log in -->
-    <string name="login_in">Log in</string>
+    <string name="log_in">Log in</string>
     <string name="sign_up">Sign up</string>
 
     <!-- Register -->

@@ -1,4 +1,4 @@
-package com.frede360.app.feature.login.repository
+package com.frede360.app.feature.register.repository
 
 import android.content.Context
 import com.frede360.app.commons.rest.Frede360BaseRepository
@@ -7,30 +7,31 @@ import com.frede360.app.commons.rest.Frede360RestConstants
 import com.frede360.app.commons.rest.local.Frede360LocalCallbackImpl
 import com.frede360.app.commons.utils.SingletonHolder
 import com.frede360.app.feature.login.entities.LoginOut
+import com.frede360.app.feature.login.repository.LoginRepository
 import java.lang.Exception
 
-class LoginRepository constructor(override val context: Context) : Frede360BaseRepository(context) {
+class RegisterRepository constructor(override val context: Context) : Frede360BaseRepository(context) {
 
 //  ====================================
 //  Params
 //  ====================================
 
-    private val loginJson = "backend/login_ok.json"
-    var username = ""
+    private val registerJson = "backend/register_ok.json"
 
 //  ====================================
 //  Public methods
 //  ====================================
 
-    companion object : SingletonHolder<LoginRepository, Context>(::LoginRepository)
+    companion object : SingletonHolder<RegisterRepository, Context>(::RegisterRepository)
 
-    fun launchLogin(callback: Frede360RestCallback) {
-        enqueueJsonData(loginJson, object : Frede360LocalCallbackImpl<LoginOut>(callback) {
+    fun launchRegister(callback: Frede360RestCallback) {
+        enqueueJsonData(registerJson, object : Frede360LocalCallbackImpl<LoginOut>(callback) {
 
             override fun onLocalSuccess(response: LoginOut) {
                 //Check "status" param value before executing callback
                 if (response.status == Frede360RestConstants.success) {
-                    saveUsername(response)
+                    //Save username in LoginRepository
+                    LoginRepository.getInstance(context).saveUsername(response)
 
                     super.onLocalSuccess(response)
                 } else {
@@ -41,12 +42,4 @@ class LoginRepository constructor(override val context: Context) : Frede360BaseR
 
         })
     }
-
-    /**
-     * Called to save username value in LoginRepository
-     */
-    fun saveUsername(loginData: LoginOut) {
-        username = loginData.data.username
-    }
-
 }
