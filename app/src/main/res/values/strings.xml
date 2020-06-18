@@ -2,5 +2,9 @@
     <string name="app_name">Frede360</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+
+    <!-- Log in -->
     <string name="login_in">Log in</string>
+    <string name="sign_up">Sign up</string>
+
 </resources>

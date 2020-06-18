@@ -4,4 +4,9 @@
         <attr name="frede360_text" format="string" />
         <attr name="frede360_enabled" format="boolean" />
     </declare-styleable>
+
+    <declare-styleable name="Frede360LabelButton">
+        <attr name="frede360_text" />
+        <attr name="frede360_color" format="reference" />
+    </declare-styleable>
 </resources>
