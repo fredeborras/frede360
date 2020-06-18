@@ -3,6 +3,11 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
 
+    <!-- Errors -->
+    <string name="error_email_empty">Write your email</string>
+    <string name="error_email_invalid">This email is not valid</string>
+    <string name="error_pwd_invalid">Password must be between 6 and 12 characters long</string>
+
     <!-- Log in -->
     <string name="login_in">Log in</string>
     <string name="sign_up">Sign up</string>

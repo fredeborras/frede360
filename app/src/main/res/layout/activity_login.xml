@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/email"
             android:textColorHint="@color/colorPrimaryDark"
+            app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@id/pwdContainer">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -37,6 +38,7 @@
             android:layout_marginBottom="30dp"
             android:hint="@string/password"
             android:textColorHint="@color/colorPrimaryDark"
+            app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@id/loginBtn">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -45,6 +47,7 @@
                 android:layout_height="wrap_content"
                 android:importantForAutofill="noExcludeDescendants"
                 android:inputType="textPassword"
+                android:maxEms="12"
                 android:textColor="@color/colorPrimaryDark"
                 android:textColorHint="@color/colorPrimaryDark" />
 
