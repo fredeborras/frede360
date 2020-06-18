@@ -45,6 +45,7 @@
                 android:id="@+id/pwdField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
                 android:importantForAutofill="noExcludeDescendants"
                 android:inputType="textPassword"
                 android:maxEms="12"

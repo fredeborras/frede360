@@ -2,6 +2,7 @@
     <string name="app_name">Frede360</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="age">Age</string>
 
     <!-- Generics -->
     <string name="generic_attention">Attention!</string>
@@ -11,9 +12,14 @@
     <string name="error_email_empty">Write your email</string>
     <string name="error_email_invalid">This email is not valid</string>
     <string name="error_pwd_invalid">Password must be between 6 and 12 characters long</string>
+    <string name="error_age_invalid">Age must be between 18 and 99 years old</string>
 
     <!-- Log in -->
     <string name="login_in">Log in</string>
     <string name="sign_up">Sign up</string>
+
+    <!-- Register -->
+    <string name="register_info">Welcome to Frede360!</string>
+    <string name="register_msg">Before starting to enjoy Frede360 we need a bit information about you.</string>
 
 </resources>

@@ -22,6 +22,16 @@
         <item name="android:paddingBottom">@dimen/activity_horizontal_margin</item>
     </style>
 
+    <style name="PrimaryText">
+        <item name="android:textSize">@dimen/primary_text</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="SecondaryText">
+        <item name="android:textSize">@dimen/secondary_text</item>
+    </style>
+
     <style name="Frede360ButtonStyle">
         <item name="android:background">@drawable/bg_frede360_button</item>
         <item name="android:gravity">center</item>
