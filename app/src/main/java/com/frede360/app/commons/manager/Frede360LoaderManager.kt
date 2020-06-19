@@ -2,9 +2,7 @@ package com.frede360.app.commons.manager
 
 import android.util.Log
 import com.frede360.app.Frede360Application
-import com.frede360.app.commons.view.Frede360BaseActivity
 import com.frede360.app.commons.view.Frede360LoaderFragment
-import java.lang.Exception
 
 class Frede360LoaderManager {
 

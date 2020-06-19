@@ -19,7 +19,7 @@ class HomeViewModel : Frede360BaseViewModel() {
         //Init values by default
         val pixabayIn = PixabayImagesIn()
         pixabayIn.key = "17111786-e5d5d4c6e2e59c875a9ab3e5f"
-        pixabayIn.q = "yellow flowers"
+        pixabayIn.q = "world"
         pixabayIn.imageType = "photo"
         pixabayIn.pretty = true
 
