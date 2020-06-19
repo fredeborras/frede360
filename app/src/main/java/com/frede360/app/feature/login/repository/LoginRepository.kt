@@ -27,7 +27,7 @@ class LoginRepository : Frede360BaseRepository() {
         val instance: LoginRepository by lazy { HOLDER.INSTANCE }
     }
 
-    fun launchLogin(callback: Frede360RestCallback) {
+    suspend fun launchLogin(callback: Frede360RestCallback) {
         enqueueJsonData(loginJson, object : Frede360LocalCallbackImpl<LoginOut>(callback) {
 
             override fun onLocalSuccess(response: LoginOut) {

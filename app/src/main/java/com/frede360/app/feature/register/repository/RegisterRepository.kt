@@ -19,7 +19,7 @@ class RegisterRepository : Frede360BaseRepository() {
 //  Public methods
 //  ====================================
 
-    fun launchRegister(callback: Frede360RestCallback) {
+    suspend fun launchRegister(callback: Frede360RestCallback) {
         enqueueJsonData(registerJson, object : Frede360LocalCallbackImpl<RegisterOut>(callback) {
 
             override fun onLocalSuccess(response: RegisterOut) {

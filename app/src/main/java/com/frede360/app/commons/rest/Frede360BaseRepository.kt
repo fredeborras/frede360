@@ -5,6 +5,8 @@ import com.frede360.app.Frede360Application
 import com.frede360.app.commons.rest.local.Frede360LocalCallback
 import com.frede360.app.commons.rest.local.Frede360LocalClient
 import com.google.gson.GsonBuilder
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
 import java.lang.Exception
 
 open class Frede360BaseRepository {
@@ -21,13 +23,21 @@ open class Frede360BaseRepository {
     /**
      * Called to get data from json using entity specified (E)
      */
-    inline fun <reified E> enqueueJsonData(fileName: String, callback: Frede360LocalCallback<E>) {
+    suspend inline fun <reified E> enqueueJsonData(
+        fileName: String,
+        callback: Frede360LocalCallback<E>
+    ) {
         val gson = GsonBuilder()
             .setLenient()
             .create()
 
-        //Get Json file as String
-        val json = Frede360LocalClient.getJson(this.context, fileName)
+        var json = ""
+        val value = GlobalScope.async {
+            //Get Json file as String
+            json = Frede360LocalClient.getJson(context, fileName)
+        }
+
+        value.await()
 
         //Read Json data
         try {
