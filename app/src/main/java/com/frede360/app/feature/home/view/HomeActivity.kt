@@ -18,6 +18,10 @@ import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : Frede360BaseViewModelActivity<HomeViewModel>(), OnPixabayImageClickedListener {
 
+//  ====================================
+//  LifeCycle
+//  ====================================
+
     override fun getViewModelClass(): Class<HomeViewModel> {
         return HomeViewModel::class.java
     }
@@ -32,11 +36,35 @@ class HomeActivity : Frede360BaseViewModelActivity<HomeViewModel>(), OnPixabayIm
     override fun configureView() {
         super.configureView()
 
+        configureRefreshSwipeLayout()
         launchPixabayImages()
     }
 
+//  ====================================
+//  RefreshSwipeLayout methods
+//  ====================================
+
+    private fun configureRefreshSwipeLayout() {
+        swipeRefreshLayout.setOnRefreshListener {
+            launchPixabayImages()
+        }
+    }
+
+    private fun hideSwipeRefresh() {
+        swipeRefreshLayout.isRefreshing = false
+    }
+
+//  ====================================
+//  Other private methods
+//  ====================================
+
+    /**
+     * Called to launch request to Pixabay to get images
+     */
     private fun launchPixabayImages() {
         viewModel.launchPixabayImages().observe(this, Observer {
+            hideSwipeRefresh()
+
             if (it != null) {
                 buildPixabayImageList(it)
             } else {

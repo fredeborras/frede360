@@ -4,12 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- TODO: Add PullToRefresh -->
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/pixabayRecyclerView"
+    <com.frede360.app.commons.ui.Frede360SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/pixabayRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.frede360.app.commons.ui.Frede360SwipeRefreshLayout>
 
     <TextView
         android:id="@+id/emptyView"
