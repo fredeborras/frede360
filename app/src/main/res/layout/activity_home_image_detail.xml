@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:clipToPadding="false"
+    android:fillViewport="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +27,7 @@
                 <com.google.android.material.appbar.CollapsingToolbarLayout
                     android:id="@+id/collapsingToolbar"
                     android:layout_width="match_parent"
-                    android:layout_height="275dp"
+                    android:layout_height="325dp"
                     android:fitsSystemWindows="true"
                     app:contentScrim="?attr/colorPrimary"
                     app:expandedTitleMarginEnd="64dp"
@@ -35,7 +37,7 @@
                     <ImageView
                         android:id="@+id/image"
                         android:layout_width="match_parent"
-                        android:layout_height="275dp"
+                        android:layout_height="325dp"
                         android:fitsSystemWindows="true"
                         android:scaleType="centerCrop"
                         app:layout_collapseMode="parallax" />
@@ -46,6 +48,32 @@
                         android:layout_height="?attr/actionBarSize"
                         app:layout_collapseMode="pin"
                         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        style="@style/TextContainer"
+                        app:layout_collapseMode="parallax">
+
+                        <TextView
+                            android:id="@+id/imageSizeLabel"
+                            style="@style/SecondaryText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent" />
+
+                        <TextView
+                            android:id="@+id/imageTypeLabel"
+                            style="@style/SecondaryText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintRight_toRightOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -58,26 +86,39 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/tagsRecyclerView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:overScrollMode="ifContentScrolls"
+                android:scrollbars="none"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/user"
                 style="@style/SecondaryText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:drawableStart="@drawable/ic_user"
                 android:drawablePadding="5dp"
                 android:gravity="center_vertical"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/tagsRecyclerView" />
 
             <TextView
                 android:id="@+id/views"
                 style="@style/SecondaryText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:drawableStart="@drawable/ic_views"
                 android:drawablePadding="5dp"
                 android:gravity="center_vertical"
-                app:layout_constraintLeft_toLeftOf="parent"
+                android:padding="7dp"
+                app:layout_constraintRight_toLeftOf="@id/likes"
                 app:layout_constraintTop_toBottomOf="@id/user" />
 
             <TextView
@@ -85,44 +126,58 @@
                 style="@style/SecondaryText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:drawableStart="@drawable/ic_like"
                 android:drawablePadding="5dp"
                 android:gravity="center_vertical"
+                android:padding="7dp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/views"/>
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user" />
 
             <TextView
                 android:id="@+id/comments"
                 style="@style/SecondaryText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:drawableStart="@drawable/ic_comment"
                 android:drawablePadding="5dp"
                 android:gravity="center_vertical"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/likes"/>
+                android:padding="7dp"
+                app:layout_constraintLeft_toRightOf="@id/likes"
+                app:layout_constraintTop_toBottomOf="@id/user" />
 
-            <TextView
-                android:id="@+id/favorites"
-                style="@style/SecondaryText"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_favorite"
-                android:drawablePadding="5dp"
-                android:gravity="center_vertical"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/comments"/>
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/likes">
 
-            <TextView
-                android:id="@+id/downloads"
-                style="@style/SecondaryText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_cloud_download"
-                android:drawablePadding="5dp"
-                android:gravity="center_vertical"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/favorites"/>
+                <TextView
+                    android:id="@+id/favorites"
+                    style="@style/SecondaryText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawableStart="@drawable/ic_favorite"
+                    android:drawablePadding="5dp"
+                    android:gravity="center_vertical"
+                    android:padding="7dp" />
+
+                <TextView
+                    android:id="@+id/downloads"
+                    style="@style/SecondaryText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawableStart="@drawable/ic_cloud_download"
+                    android:drawablePadding="5dp"
+                    android:gravity="center_vertical"
+                    android:padding="7dp" />
+
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

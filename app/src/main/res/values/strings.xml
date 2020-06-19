@@ -23,4 +23,8 @@
     <string name="register_info">Welcome to Frede360!</string>
     <string name="register_msg">Before starting to enjoy Frede360 we need a bit information about you.</string>
 
+    <!-- Home: Image Detail -->
+    <string name="image_size">Size: %1$s</string>
+    <string name="image_type">Type: %1$s</string>
+
 </resources>
