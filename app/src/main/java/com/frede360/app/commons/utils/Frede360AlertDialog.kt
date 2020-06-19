@@ -25,15 +25,6 @@ class Frede360AlertDialog {
             }
         }
 
-        fun basic(
-            context: Context,
-            title: String,
-            msg: String,
-            callback: OnSimpleAlertDialogClickListener
-        ) {
-            show(context, title, msg, context.getString(android.R.string.ok), callback)
-        }
-
         fun show(
             context: Context,
             title: String,

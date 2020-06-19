@@ -57,7 +57,7 @@ class Frede360LoaderManager {
             }
         }
 
-        fun isLoaderVisible(activity: Frede360BaseActivity): Boolean {
+        private fun isLoaderVisible(activity: Frede360BaseActivity): Boolean {
             val manager = activity.supportFragmentManager
             val fragment = manager.findFragmentByTag(tag)
 

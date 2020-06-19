@@ -40,6 +40,12 @@ open class Frede360BaseActivity : AppCompatActivity() {
 //  Override methods
 //  ====================================
 
+    override fun finish() {
+        super.finish()
+
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+    }
+
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if (item != null) {
             when (item.itemId) {
@@ -66,6 +72,9 @@ open class Frede360BaseActivity : AppCompatActivity() {
 //  Public methods
 //  ====================================
 
+    /**
+     * Main Frede360 method to startActivity
+     */
     fun launchActivity(activity: AppCompatActivity) {
         val intent = Intent(this, activity::class.java)
         launchActivity(intent)
@@ -79,12 +88,6 @@ open class Frede360BaseActivity : AppCompatActivity() {
         ).toBundle()
 
         startActivity(intent, bundle)
-    }
-
-    override fun finish() {
-        super.finish()
-
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
     }
 
 //  ====================================

@@ -8,7 +8,6 @@ import com.frede360.app.commons.viewmodel.Frede360BaseViewModel
 import com.frede360.app.feature.home.entities.PixabayImagesIn
 import com.frede360.app.feature.home.entities.PixabayImagesOut
 import com.frede360.app.feature.home.repository.HomeRepository
-import com.frede360.app.feature.login.repository.LoginRepository
 
 class HomeViewModel : Frede360BaseViewModel() {
 

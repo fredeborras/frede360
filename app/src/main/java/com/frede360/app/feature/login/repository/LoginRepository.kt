@@ -30,7 +30,7 @@ class LoginRepository constructor(override val context: Context) : Frede360BaseR
             override fun onLocalSuccess(response: LoginOut) {
                 //Check "status" param value before executing callback
                 if (response.status == Frede360RestConstants.success) {
-                    saveUsername(response)
+                    saveUsername(response.data.username)
 
                     super.onLocalSuccess(response)
                 } else {
@@ -45,8 +45,10 @@ class LoginRepository constructor(override val context: Context) : Frede360BaseR
     /**
      * Called to save username value in LoginRepository
      */
-    fun saveUsername(loginData: LoginOut) {
-        username = loginData.data.username
+    fun saveUsername(name: String) {
+        if (name.isNotEmpty()) {
+            username = name
+        }
     }
 
 }
