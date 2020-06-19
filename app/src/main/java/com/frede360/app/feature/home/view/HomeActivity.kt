@@ -7,6 +7,7 @@ import android.view.View.VISIBLE
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.frede360.app.R
+import com.frede360.app.commons.manager.Frede360LoaderManager
 import com.frede360.app.commons.view.Frede360BaseViewModelActivity
 import com.frede360.app.feature.home.entities.Hit
 import com.frede360.app.feature.home.entities.PixabayImagesOut
@@ -14,6 +15,7 @@ import com.frede360.app.feature.home.view.HomeImageDetailActivity.Companion.imag
 import com.frede360.app.feature.home.view.adapter.HomePixabayImageAdapter
 import com.frede360.app.feature.home.view.adapter.OnPixabayImageClickedListener
 import com.frede360.app.feature.home.viewmodel.HomeViewModel
+import com.frede360.app.feature.login.repository.LoginRepository
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : Frede360BaseViewModelActivity<HomeViewModel>(), OnPixabayImageClickedListener {
@@ -36,7 +38,15 @@ class HomeActivity : Frede360BaseViewModelActivity<HomeViewModel>(), OnPixabayIm
     override fun configureView() {
         super.configureView()
 
+        //Configure action title
+        val homeTitle = LoginRepository.getInstance(this).username
+        if (homeTitle.isNotEmpty()) {
+            title = homeTitle
+        }
+
         configureRefreshSwipeLayout()
+
+        Frede360LoaderManager.show(this)
         launchPixabayImages()
     }
 
@@ -64,6 +74,7 @@ class HomeActivity : Frede360BaseViewModelActivity<HomeViewModel>(), OnPixabayIm
     private fun launchPixabayImages() {
         viewModel.launchPixabayImages().observe(this, Observer {
             hideSwipeRefresh()
+            Frede360LoaderManager.hide(this)
 
             if (it != null) {
                 buildPixabayImageList(it)
