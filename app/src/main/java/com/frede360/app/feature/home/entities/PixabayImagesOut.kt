@@ -1,8 +1,9 @@
 package com.frede360.app.feature.home.entities
 
 import com.google.gson.annotations.Expose
+import java.io.Serializable
 
-class PixabayImagesOut {
+class PixabayImagesOut : Serializable {
     @Expose
     var hits: List<Hit>? = null
     @Expose

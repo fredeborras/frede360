@@ -1,11 +1,18 @@
 package com.frede360.app.feature.register.entities
 
-class RegisterOut {
+import com.google.gson.annotations.Expose
+import java.io.Serializable
+
+class RegisterOut : Serializable {
+    @Expose
     var status = ""
+    @Expose
     var messageError = ""
+    @Expose
     var data = RegisterData()
 
-    class RegisterData {
+    class RegisterData : Serializable {
+        @Expose
         var username = ""
     }
 }

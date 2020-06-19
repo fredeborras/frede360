@@ -19,3 +19,44 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-android
+-repackageclasses
+-keepattributes *Annotation*
+-keepattributes Signature
+-keepattributes Exceptions
+-optimizations code/simplification/arithmetic,!code/simplification/cast,!field/*,! class/merging/*,!method/inlining/*
+-optimizationpasses 3
+-allowaccessmodification
+-overloadaggressively
+
+#logs
+-assumenosideeffects class android.util.Log {
+     public static boolean isLoggable(java.lang.String, int);
+     public static int v(...);
+     public static int i(...);
+     public static int w(...);
+     public static int d(...);
+     public static int e(...);
+}
+
+#retrofit
+-dontwarn retrofit.**
+-keep class retrofit.** { *; }
+
+#okhttp
+-keep class okhttp3.** { *; }
+-keep interface okhttp3.** { *; }
+-dontwarn okhttp3.**
+-dontnote okhttp3.**
+
+#okio
+-keep class sun.misc.Unsafe { *; }
+-dontwarn java.nio.file.*
+-dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
+
+#gson
+-keep class sun.misc.Unsafe { *; }
+-keep class com.google.gson.stream.** { *; }
+-keepclassmembers enum * { *; }
+-keepclassmembers class * implements java.io.Serializable { *; }
