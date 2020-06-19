@@ -84,7 +84,7 @@ class HomeActivity : Frede360BaseViewModelActivity<HomeViewModel>(), OnPixabayIm
     }
 
     /**
-     * Main function to build the list of Pixabay images
+     * Main function to build list of Pixabay images
      */
     private fun buildPixabayImageList(response: PixabayImagesOut) {
         pixabayRecyclerView.visibility = VISIBLE
