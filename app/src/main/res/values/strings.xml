@@ -6,6 +6,7 @@
 
     <!-- Generics -->
     <string name="generic_attention">Attention!</string>
+    <string name="generic_empty_label">Nothing found</string>
 
     <!-- Errors -->
     <string name="error_connection">Something went wrong. Try it again!</string>
