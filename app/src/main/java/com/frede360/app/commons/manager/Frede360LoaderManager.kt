@@ -1,6 +1,7 @@
 package com.frede360.app.commons.manager
 
 import android.util.Log
+import com.frede360.app.Frede360Application
 import com.frede360.app.commons.view.Frede360BaseActivity
 import com.frede360.app.commons.view.Frede360LoaderFragment
 import java.lang.Exception
@@ -11,19 +12,20 @@ class Frede360LoaderManager {
 
         private val tag: String = Frede360LoaderManager::class.java.toString()
 
-        fun show(activity: Frede360BaseActivity) {
-            show(activity, android.R.id.content)
+        fun show() {
+            show(android.R.id.content)
         }
 
-        fun show(activity: Frede360BaseActivity, id: Int) {
+        fun show(id: Int) {
+            val activity = Frede360Application.activityContext
             try {
                 //If there is a loader in the current activity, delete it before showing other
-                if (isLoaderVisible(activity)) {
-                    hide(activity)
+                if (isLoaderVisible()) {
+                    hide()
                 }
 
                 Thread(Runnable {
-                    activity.runOnUiThread {
+                    activity?.runOnUiThread {
                         val manager = activity.supportFragmentManager
 
                         val transaction = manager.beginTransaction()
@@ -38,10 +40,11 @@ class Frede360LoaderManager {
             }
         }
 
-        fun hide(activity: Frede360BaseActivity) {
+        fun hide() {
+            val activity = Frede360Application.activityContext
             try {
                 Thread(Runnable {
-                    activity.runOnUiThread {
+                    activity?.runOnUiThread {
                         val manager = activity.supportFragmentManager
                         val fragment = manager.findFragmentByTag(tag)
 
@@ -57,9 +60,10 @@ class Frede360LoaderManager {
             }
         }
 
-        private fun isLoaderVisible(activity: Frede360BaseActivity): Boolean {
-            val manager = activity.supportFragmentManager
-            val fragment = manager.findFragmentByTag(tag)
+        private fun isLoaderVisible(): Boolean {
+            val activity = Frede360Application.activityContext
+            val manager = activity?.supportFragmentManager
+            val fragment = manager?.findFragmentByTag(tag)
 
             return fragment != null && fragment is Frede360LoaderFragment
         }

@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.frede360.app.Frede360Application
 
 @SuppressLint("Registered")
 open class Frede360BaseActivity : AppCompatActivity() {
@@ -20,7 +21,10 @@ open class Frede360BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //Force Portrait to all Activities
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
+        Frede360Application.activityContext = this
         configureBackButton(backButtonEnabled())
     }
 

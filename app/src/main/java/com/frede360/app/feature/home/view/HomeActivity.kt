@@ -39,14 +39,14 @@ class HomeActivity : Frede360BaseViewModelActivity<HomeViewModel>(), OnPixabayIm
         super.configureView()
 
         //Configure action title
-        val homeTitle = LoginRepository.getInstance(this).username
+        val homeTitle = LoginRepository.instance.username
         if (homeTitle.isNotEmpty()) {
             title = homeTitle
         }
 
         configureRefreshSwipeLayout()
 
-        Frede360LoaderManager.show(this)
+        Frede360LoaderManager.show()
         launchPixabayImages()
     }
 
@@ -74,7 +74,6 @@ class HomeActivity : Frede360BaseViewModelActivity<HomeViewModel>(), OnPixabayIm
     private fun launchPixabayImages() {
         viewModel.launchPixabayImages().observe(this, Observer {
             hideSwipeRefresh()
-            Frede360LoaderManager.hide(this)
 
             if (it != null) {
                 buildPixabayImageList(it)

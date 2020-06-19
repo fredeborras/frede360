@@ -1,12 +1,15 @@
 package com.frede360.app.commons.rest
 
 import android.content.Context
+import com.frede360.app.Frede360Application
 import com.frede360.app.commons.rest.local.Frede360LocalCallback
 import com.frede360.app.commons.rest.local.Frede360LocalClient
 import com.google.gson.GsonBuilder
 import java.lang.Exception
 
-open class Frede360BaseRepository constructor(open val context: Context) {
+open class Frede360BaseRepository {
+
+    var context: Context = Frede360Application.activityContext!!
 
     /**
      * Called to get the DataSource of current Repository
@@ -24,7 +27,7 @@ open class Frede360BaseRepository constructor(open val context: Context) {
             .create()
 
         //Get Json file as String
-        val json = Frede360LocalClient.getJson(context, fileName)
+        val json = Frede360LocalClient.getJson(this.context, fileName)
 
         //Read Json data
         try {

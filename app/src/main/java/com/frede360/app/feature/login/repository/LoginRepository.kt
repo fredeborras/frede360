@@ -1,28 +1,31 @@
 package com.frede360.app.feature.login.repository
 
-import android.content.Context
 import com.frede360.app.commons.rest.Frede360BaseRepository
 import com.frede360.app.commons.rest.Frede360RestCallback
 import com.frede360.app.commons.rest.Frede360RestConstants
 import com.frede360.app.commons.rest.local.Frede360LocalCallbackImpl
-import com.frede360.app.commons.utils.SingletonHolder
 import com.frede360.app.feature.login.entities.LoginOut
-import java.lang.Exception
 
-class LoginRepository constructor(override val context: Context) : Frede360BaseRepository(context) {
+class LoginRepository : Frede360BaseRepository() {
 
 //  ====================================
 //  Params
 //  ====================================
 
-    private val loginJson = "backend/login_ok.json"
+    private val loginJson = "backend/login.json"
     var username = ""
+
+    private object HOLDER {
+        val INSTANCE = LoginRepository()
+    }
 
 //  ====================================
 //  Public methods
 //  ====================================
 
-    companion object : SingletonHolder<LoginRepository, Context>(::LoginRepository)
+    companion object {
+        val instance: LoginRepository by lazy { HOLDER.INSTANCE }
+    }
 
     fun launchLogin(callback: Frede360RestCallback) {
         enqueueJsonData(loginJson, object : Frede360LocalCallbackImpl<LoginOut>(callback) {

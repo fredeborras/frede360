@@ -23,9 +23,9 @@ class HomeViewModel : Frede360BaseViewModel() {
         pixabayIn.imageType = "photo"
         pixabayIn.pretty = true
 
-        HomeRepository(context).launchPixabayImages(
+        HomeRepository().launchPixabayImages(
             pixabayIn,
-            object : Frede360RestCallbackImpl(context) {
+            object : Frede360RestCallbackImpl() {
                 override fun onSuccess(response: SuccessEntity) {
                     super.onSuccess(response)
 
@@ -33,7 +33,7 @@ class HomeViewModel : Frede360BaseViewModel() {
                 }
 
                 override fun onError(error: ErrorEntity) {
-                    //Change behaviour on error to avoid showing error dialog
+                    //Changing behaviour on error to avoid showing the default error dialog
                     pixabayResponse.value = null
                 }
             })

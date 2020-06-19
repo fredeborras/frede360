@@ -2,6 +2,7 @@ package com.frede360.app.commons.utils
 
 import android.content.Context
 import androidx.appcompat.app.AlertDialog
+import com.frede360.app.Frede360Application
 import com.frede360.app.R
 
 class Frede360AlertDialog {
@@ -12,7 +13,8 @@ class Frede360AlertDialog {
 
     companion object {
 
-        fun default(context: Context?, msg: String) {
+        fun default(msg: String) {
+            val context = Frede360Application.activityContext
             context?.let {
                 show(
                     it,
