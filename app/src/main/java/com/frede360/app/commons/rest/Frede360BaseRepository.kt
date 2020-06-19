@@ -9,6 +9,13 @@ import java.lang.Exception
 open class Frede360BaseRepository constructor(open val context: Context) {
 
     /**
+     * Called to get the DataSource of current Repository
+     */
+    inline fun <reified REPO> getDataSource(repo: Class<REPO>): REPO {
+        return Frede360DataSource.instance.getDataSource(repo)!!
+    }
+
+    /**
      * Called to get data from json using entity specified (E)
      */
     inline fun <reified E> enqueueJsonData(fileName: String, callback: Frede360LocalCallback<E>) {
