@@ -68,7 +68,10 @@ class HomeImageDetailActivity : Frede360BaseActivity() {
             .placeholder(R.color.generic_grey_light)
             .into(image)
 
-        imageSizeLabel.text = getString(R.string.image_size, this.imageDetail.imageSize.toString())
+        imageSizeLabel.text = getString(
+            R.string.image_size,
+            Frede360TextUtils.formatByteNumber(this.imageDetail.imageSize)
+        )
         imageTypeLabel.text = getString(R.string.image_type, this.imageDetail.type)
 
         //Build tag list
