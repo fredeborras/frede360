@@ -49,4 +49,10 @@
         <item name="android:textSize">@dimen/button_text_size</item>
     </style>
 
+    <style name="ImageDetailText" parent="SecondaryText">
+        <item name="android:padding">7dp</item>
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
 </resources>

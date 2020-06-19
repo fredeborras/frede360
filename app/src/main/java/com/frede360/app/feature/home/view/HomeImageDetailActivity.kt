@@ -9,8 +9,9 @@ import com.frede360.app.commons.utils.Frede360TextUtils
 import com.frede360.app.commons.view.Frede360BaseActivity
 import com.frede360.app.feature.home.entities.Hit
 import com.frede360.app.feature.home.view.adapter.TagsAdapter
-import com.google.android.material.appbar.CollapsingToolbarLayout
 import kotlinx.android.synthetic.main.activity_home_image_detail.*
+import kotlinx.android.synthetic.main.container_collapsing_image.*
+import kotlinx.android.synthetic.main.container_image_info.*
 
 class HomeImageDetailActivity : Frede360BaseActivity() {
 
