@@ -1,5 +1,6 @@
 package com.frede360.app.feature.home.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -9,6 +10,7 @@ import com.frede360.app.R
 import com.frede360.app.commons.view.Frede360BaseViewModelActivity
 import com.frede360.app.feature.home.entities.Hit
 import com.frede360.app.feature.home.entities.PixabayImagesOut
+import com.frede360.app.feature.home.view.HomeImageDetailActivity.Companion.imageDetailExtra
 import com.frede360.app.feature.home.view.adapter.HomePixabayImageAdapter
 import com.frede360.app.feature.home.view.adapter.OnPixabayImageClickedListener
 import com.frede360.app.feature.home.viewmodel.HomeViewModel
@@ -60,7 +62,9 @@ class HomeActivity : Frede360BaseViewModelActivity<HomeViewModel>(), OnPixabayIm
     }
 
     override fun onPixabayImageClicked(item: Hit) {
-        //TODO
+        val intent = Intent(this, HomeImageDetailActivity::class.java)
+        intent.putExtra(imageDetailExtra, item)
+        launchActivity(intent)
     }
 
     /**

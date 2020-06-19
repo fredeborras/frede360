@@ -2,8 +2,9 @@ package com.frede360.app.feature.home.entities
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
-class Hit {
+class Hit : Serializable {
     @Expose
     var comments: Long? = null
     @Expose
