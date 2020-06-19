@@ -9,70 +9,94 @@
         android:id="@+id/container"
         style="@style/DefaultContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/splash">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/mailContainer"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/loginContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/email"
-            android:textColorHint="@color/colorPrimaryDark"
-            app:errorEnabled="true"
-            app:layout_constraintBottom_toTopOf="@id/pwdContainer">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/mailField"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:importantForAutofill="noExcludeDescendants"
-                android:inputType="textEmailAddress"
-                android:textColor="@color/colorPrimaryDark"
-                android:textColorHint="@color/colorPrimaryDark" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/pwdContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:hint="@string/password"
-            android:textColorHint="@color/colorPrimaryDark"
-            app:errorEnabled="true"
-            app:layout_constraintBottom_toTopOf="@id/loginBtn">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/pwdField"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:imeOptions="actionDone"
-                android:importantForAutofill="noExcludeDescendants"
-                android:inputType="textPassword"
-                android:maxEms="12"
-                android:textColor="@color/colorPrimaryDark"
-                android:textColorHint="@color/colorPrimaryDark" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.frede360.app.commons.ui.Frede360Button
-            android:id="@+id/loginBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:frede360_text="@string/log_in"
+            android:layout_margin="15dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/mailContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/email"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    app:errorEnabled="true"
+                    app:layout_constraintBottom_toTopOf="@id/pwdContainer">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/mailField"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:importantForAutofill="noExcludeDescendants"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorPrimaryDark" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/pwdContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/password"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    app:errorEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/pwdField"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionDone"
+                        android:importantForAutofill="noExcludeDescendants"
+                        android:inputType="textPassword"
+                        android:maxEms="12"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorPrimaryDark" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.frede360.app.commons.ui.Frede360Button
+                    android:id="@+id/loginBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    app:frede360_text="@string/log_in"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pwdContainer" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
 
         <com.frede360.app.commons.ui.Frede360LabelButton
             android:id="@+id/registerBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/button_bottom_margin"
             android:layout_marginBottom="@dimen/button_bottom_margin"
             app:frede360_text="@string/sign_up"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/loginContainer" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
