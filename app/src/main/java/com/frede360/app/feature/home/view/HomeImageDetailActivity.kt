@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.frede360.app.R
+import com.frede360.app.commons.utils.Frede360ImageUtils
 import com.frede360.app.commons.utils.Frede360TextUtils
 import com.frede360.app.commons.view.Frede360BaseActivity
 import com.frede360.app.feature.home.entities.Hit
@@ -69,11 +70,15 @@ class HomeImageDetailActivity : Frede360BaseActivity() {
             .placeholder(R.color.generic_grey_light)
             .into(image)
 
+        //Build size and type
         imageSizeLabel.text = getString(
             R.string.image_size,
             Frede360TextUtils.formatByteNumber(this.imageDetail.imageSize)
         )
-        imageTypeLabel.text = getString(R.string.image_type, this.imageDetail.type)
+        imageTypeLabel.text = getString(
+            R.string.image_type,
+            Frede360ImageUtils.getMimeType(this.imageDetail.largeImageURL)
+        )
 
         //Build tag list
         val tagsList = this.imageDetail.tags?.split(",")
