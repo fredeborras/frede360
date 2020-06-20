@@ -78,6 +78,7 @@ class HomeActivity : Frede360BaseViewModelActivity<HomeViewModel>(), OnPixabayIm
             if (it != null) {
                 buildPixabayImageList(it)
             } else {
+                Frede360LoaderManager.hide()
                 showEmptyState()
             }
         })
