@@ -35,6 +35,7 @@ class HomePixabayImageAdapter(
         Glide.with(viewHolder.itemView)
             .load(item.previewURL)
             .placeholder(R.color.generic_grey_light)
+            .thumbnail(0.75f)
             .into(viewHolder.itemView.image)
 
         viewHolder.itemView.user.text = item.user
