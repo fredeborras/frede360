@@ -1,4 +1,4 @@
-# frede360
+# Frede360
 Building a basic App using MVVM 
 
 Frede360 is developed in Kotlin and the Architecture Patterns is MVVM (Model-View-ViewModel).
